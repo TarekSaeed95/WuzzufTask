@@ -42,3 +42,37 @@ header ul li:hover::after {
     display: block;
     cursor: pointer;
 }
+
+.search-section {
+    background: white;
+    margin-top: .5rem;
+    height: 144px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-section input {
+    width: 776px;
+    height: 75px;
+    padding-inline: 1rem;
+    font-size: 26px;
+    border-radius: .5rem;
+}
+
+.search-section input::placeholder {
+    font-size: 26px;
+}
+
+.search-section svg {
+    font-size: 26px;
+    color: #8D8D8D;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+}

@@ -1,5 +1,6 @@
 * {
     font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -10,6 +11,16 @@ body {
 a {
     text-decoration: none;
     color: black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
 }
 
 header {
@@ -31,7 +42,7 @@ header ul {
     list-style: none;
     display: flex;
     gap: 20px;
-    font-size: 18px;
+    font-size: 1.125rem;
 }
 
 header ul li:hover::after {
@@ -60,19 +71,68 @@ header ul li:hover::after {
     width: 776px;
     height: 75px;
     padding-inline: 1rem;
-    font-size: 26px;
+    font-size: 1.625rem;
     border-radius: .5rem;
 }
 
 .search-section input::placeholder {
-    font-size: 26px;
+    font-size: 1.625rem;
 }
 
 .search-section svg {
-    font-size: 26px;
+    font-size: 1.625rem;
     color: #8D8D8D;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 1rem;
+}
+
+.home-page h1 {
+    font-size: 3rem;
+    margin-block: 1rem 2rem;
+}
+
+.job-card {
+    background: white;
+    padding: 3rem 2.75rem;
+    width: 49%;
+}
+
+.job-card h2 {
+    font-size: 1.5rem;
+}
+
+.job-card p,
+.job-card a {
+    font-size: 1.125rem;
+}
+
+.job-card>p {
+    margin: 1rem 0 .5rem;
+}
+
+.skills {
+    display: flex;
+    column-gap: .25rem;
+    row-gap: .5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.skills p {
+    padding: .5rem;
+    background: #C4C4C4;
+    border-radius: .25rem;
+    text-align: center;
+    width: fit-content;
+    text-wrap: nowrap;
+}
+
+.jobs-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }

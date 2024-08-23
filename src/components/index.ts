@@ -1,2 +1,3 @@
 import { ErrorBoundary } from "./ErrorBoundary";
-export {ErrorBoundary}
+import { Header } from "./Header";
+export {ErrorBoundary, Header}

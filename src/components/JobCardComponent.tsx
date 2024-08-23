@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-
-export const JobCardComponent = () => {
+import { Job } from "../types";
+type JobCardComponentProps = {
+  job: Job;
+};
+export const JobCardComponent = ({ job }: JobCardComponentProps) => {
   return (
     <section className="job-card">
-      <h2>4th Grade Math Teacher</h2>
+      <h2>{job.attributes.title}</h2>
       <p>Related Skills:</p>
       <div className="skills">
         <p>operation</p>

@@ -23,3 +23,25 @@ export type ApiSkillsGetResponse = {
     };
   };
 };
+export type ApiSkillByIdGetResponse = {
+  data: {
+    skill: {
+      id: string;
+      type: "skill";
+      attributes: {
+        name: string;
+        type: string;
+        importance: string;
+        level: string;
+      };
+      relationships: {
+        jobs: {
+          id: string;
+        }[];
+        skills: {
+          id: string;
+        }[];
+      };
+    };
+  };
+};

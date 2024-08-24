@@ -21,3 +21,20 @@ export type ApiJobsGetResponse = {
     };
   };
 };
+
+export type ApiJobByIdGetResponse = {
+  data: {
+    job: {
+      id: string;
+      type: string;
+      attributes: {
+        title: string;
+      };
+      relationships: {
+        skills: {
+          id: string;
+        }[];
+      };
+    };
+  };
+};

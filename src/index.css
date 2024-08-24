@@ -88,8 +88,7 @@ header ul li:hover::after {
     right: 1rem;
 }
 
-.home-page h1,
-.search-page h1 {
+h1.title {
     font-size: 3rem;
     margin-block: 1rem 2rem;
     text-transform: capitalize;
@@ -141,4 +140,48 @@ header ul li:hover::after {
 
 .jobs-container .job-link {
     border-bottom: 1px solid black;
+}
+
+.related-skills {
+    background: white;
+    padding: 2rem 1rem 2rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.related-skills .subtitle {
+    margin-bottom: 1rem;
+}
+
+.related-skills .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+.skill-card {
+    background: #F0F0F0;
+    padding: 1.5rem;
+}
+
+.skill-card h2 {
+    text-decoration: underline;
+}
+
+.skill-card .skill-attr {
+    display: flex;
+}
+
+.skill-card .skill-attr div {
+    display: flex;
+    gap: .125rem;
+    margin-top: 4rem;
+    width: 30%
+}
+
+.skill-card .skill-attr div p {
+    font-size: 1.125rem;
+}
+
+.skill-card .skill-attr div p:first-of-type {
+    font-weight: bold;
 }

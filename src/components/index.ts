@@ -1,3 +1,4 @@
+import { SkillsCard } from "./SkillsCard";
 import { Layout } from "./Layout";
 import { ErrorBoundary } from "./ErrorBoundary";
 import { Header } from "./Header";
@@ -11,4 +12,5 @@ export {
   SearchBar,
   Layout,
   JobCardComponent,
+  SkillsCard,
 };

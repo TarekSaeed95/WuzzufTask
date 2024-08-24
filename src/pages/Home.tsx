@@ -12,7 +12,7 @@ export const Home = () => {
     <section className="home-page">
       <SearchBar />
       <div className="container">
-        <h1>All Jobs</h1>
+        <h1 className="title">All Jobs</h1>
         <div className="jobs-container">{jobsCards}</div>
       </div>
     </section>

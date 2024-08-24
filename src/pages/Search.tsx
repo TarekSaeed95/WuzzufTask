@@ -18,7 +18,7 @@ export const Search = () => {
     <section className="search-page">
       <SearchBar />
       <div className="container">
-        <h1>{`"${searchTerm}" jobs (${meta.count})`}</h1>
+        <h1 className="title">{`"${searchTerm}" jobs (${meta.count})`}</h1>
         <div className="jobs-container">{jobsCards}</div>
       </div>
     </section>

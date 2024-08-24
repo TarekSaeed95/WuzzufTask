@@ -88,9 +88,11 @@ header ul li:hover::after {
     right: 1rem;
 }
 
-.home-page h1 {
+.home-page h1,
+.search-page h1 {
     font-size: 3rem;
     margin-block: 1rem 2rem;
+    text-transform: capitalize;
 }
 
 .job-card {
@@ -135,4 +137,8 @@ header ul li:hover::after {
     justify-content: space-between;
     gap: 1.5rem;
     margin-bottom: 2rem;
+}
+
+.jobs-container .job-link {
+    border-bottom: 1px solid black;
 }

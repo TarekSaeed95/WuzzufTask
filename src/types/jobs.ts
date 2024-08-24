@@ -1,4 +1,5 @@
 export type ApiJobsGetRequestParams = { cursor?: number; limit?: number };
+export type ApiJobsSearchGetRequestParams = { name: string };
 export type Job = {
   id: string;
   type: string;

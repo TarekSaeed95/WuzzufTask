@@ -13,7 +13,9 @@ export const JobCardComponent = ({ job }: JobCardComponentProps) => {
       <h2>{job.attributes.title}</h2>
       <p>Related Skills:</p>
       <div className="skills">{skillsElement}</div>
-      <Link to={"/job/" + job.id}>View Job details</Link>
+      <Link className="job-link" to={"/job/" + job.id}>
+        View Job details
+      </Link>
     </section>
   );
 };

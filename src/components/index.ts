@@ -1,3 +1,4 @@
+import { Loader } from "./Loader";
 import { SkillRelatedJob } from "./SkillRelatedJob";
 import { SkillsCard } from "./SkillsCard";
 import { Layout } from "./Layout";
@@ -15,4 +16,5 @@ export {
   JobCardComponent,
   SkillsCard,
   SkillRelatedJob,
+  Loader,
 };

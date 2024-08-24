@@ -23,6 +23,32 @@ p {
     margin: 0;
 }
 
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #D9D9D9;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-inline: auto;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 header {
     background: white;
 }

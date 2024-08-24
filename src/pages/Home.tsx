@@ -1,13 +1,13 @@
 import { useJobs } from "../api";
-import { JobCardComponent, SearchBar } from "../components";
+import { JobCardComponent, Loader, SearchBar } from "../components";
 
 export const Home = () => {
-  const { data: jobsResponse } = useJobs();
+  const { data: jobsResponse, isLoading: isLoadingJobs } = useJobs();
   const jobs = jobsResponse?.data.jobs || [];
-  const meta = jobsResponse?.data.meta || {};
   const jobsCards = jobs.map((job) => (
     <JobCardComponent key={job.id} job={job} />
   ));
+  if (isLoadingJobs) return <Loader className="mt-100" />;
   return (
     <section className="home-page">
       <SearchBar />

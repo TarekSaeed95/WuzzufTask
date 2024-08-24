@@ -1,10 +1,11 @@
 import { useJobsSearch } from "../api";
-import { JobCardComponent, SearchBar } from "../components";
+import { JobCardComponent, Loader, SearchBar } from "../components";
 import { useAppSelector } from "../hooks";
 
 export const Search = () => {
   const searchTerm = useAppSelector((state) => state.search.searchTerm);
-  const { data: jobsSearchResponse } = useJobsSearch({ name: searchTerm });
+  const { data: jobsSearchResponse, isLoading: isLoadingJobsSearch } =
+    useJobsSearch({ name: searchTerm });
   const jobs = jobsSearchResponse?.data.jobs || [];
   const meta = jobsSearchResponse?.data.meta || {
     count: undefined,
@@ -13,7 +14,7 @@ export const Search = () => {
   const jobsCards = jobs.map((job) => (
     <JobCardComponent key={job.id} job={job} />
   ));
-
+  if (isLoadingJobsSearch) return <Loader className="mt-100" />;
   return (
     <section className="search-page">
       <SearchBar />

@@ -1,15 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { useSkillById } from "../api";
-import { SkillRelatedJob } from "../components";
+import { Loader, SkillRelatedJob } from "../components";
 
 export const Skill = () => {
   const skillId = useLocation().pathname.split("/").pop() || "";
-  const { data: skillResponse } = useSkillById(skillId);
+  const { data: skillResponse, isLoading: isLoadingJobs } =
+    useSkillById(skillId);
   const skillData = skillResponse?.data.skill;
   const skillRelatedJobCards = skillData?.relationships.jobs.map((skillJob) => (
     <SkillRelatedJob key={skillJob.id} skillJobId={skillJob.id} />
   ));
-
+  if (isLoadingJobs) return <Loader className="mt-100" />;
   return (
     <section className="skill-page">
       <div className="container">

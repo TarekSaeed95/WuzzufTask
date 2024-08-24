@@ -142,23 +142,32 @@ h1.title {
     border-bottom: 1px solid black;
 }
 
-.related-skills {
-    background: white;
-    padding: 2rem 1rem 2rem 2rem;
-    margin-bottom: 2rem;
-}
-
-.related-skills .subtitle {
+.description {
     margin-bottom: 1rem;
 }
 
-.related-skills .content {
+.related-skills,
+.related-jobs {
+    background: white;
+    padding: 2rem 1rem 2rem 2rem;
+    margin-bottom: 2rem;
+    width: 66.666666666666%;
+}
+
+.related-skills .subtitle,
+.related-jobs .subtitle {
+    margin-bottom: 1rem;
+}
+
+.related-skills .content,
+.related-jobs .content {
     display: flex;
     flex-direction: column;
     gap: 1rem
 }
 
-.skill-card {
+.skill-card,
+.skill-related-job-card {
     background: #F0F0F0;
     padding: 1.5rem;
 }
@@ -184,4 +193,8 @@ h1.title {
 
 .skill-card .skill-attr div p:first-of-type {
     font-weight: bold;
+}
+
+.related-jobs .subtitle {
+    margin-top: 1rem;
 }

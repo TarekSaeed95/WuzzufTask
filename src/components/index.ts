@@ -1,3 +1,4 @@
+import { SkillRelatedJob } from "./SkillRelatedJob";
 import { SkillsCard } from "./SkillsCard";
 import { Layout } from "./Layout";
 import { ErrorBoundary } from "./ErrorBoundary";
@@ -13,4 +14,5 @@ export {
   Layout,
   JobCardComponent,
   SkillsCard,
+  SkillRelatedJob,
 };

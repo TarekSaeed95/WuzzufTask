@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Error } from "../pages/Error";
+import { Error } from "../pages";
 
 type ErrorProps = {
   children: ReactNode[] | ReactNode;
@@ -16,7 +16,7 @@ export class ErrorBoundary extends React.Component<ErrorProps> {
   componentDidCatch(error: Error): void {}
   render(): React.ReactNode {
     if (this.state.hasError) {
-      return < ></>;
+      return <Error />;
     }
     return this.props.children;
   }

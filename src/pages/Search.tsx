@@ -22,7 +22,9 @@ export const Search = () => {
         {isLoadingJobsSearch && <Loader className="mt-100" />}
         {jobsCards.length ? (
           <>
-            <h1 className="title">{`"${searchTerm}" jobs (${meta.count})`}</h1>
+            <h1 className="title">{`${
+              searchTerm ? `"${searchTerm}"` : ""
+            } jobs (${meta.count})`}</h1>
             <div className="jobs-container">{jobsCards}</div>
           </>
         ) : (

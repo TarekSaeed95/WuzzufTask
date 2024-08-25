@@ -38,7 +38,8 @@ export const useJobsSearch = (query: ApiJobsSearchGetRequestParams) =>
   useQuery({
     queryKey: [`jobs/get`, query.name],
     queryFn: () => jobs.search(query),
-    enabled: query.name.length > 2,
+    enabled:
+      query.name.length === 0 || (!!query.name.length && query.name.length > 2),
   });
 export const useJobById = (id: string) =>
   useQuery({

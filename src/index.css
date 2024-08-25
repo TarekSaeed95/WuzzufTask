@@ -293,3 +293,34 @@ h1.title {
     text-align: center;
     margin-top: 2rem;
 }
+
+.suggestions {
+    position: absolute;
+    left: 0;
+    background: white;
+    width: 100%;
+    z-index: 10;
+    padding: 2rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    font-size: 1.25rem;
+    list-style: none;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestions li {
+    cursor: pointer;
+    padding: 1rem;
+    transition: all .2s ease-in-out;
+}
+
+.suggestions li:hover {
+    background-color: #C4C4C4;
+    color: white;
+}
+
+.suggestions li:not(:last-child) {
+    border-bottom: 1px solid #C4C4C4;
+}

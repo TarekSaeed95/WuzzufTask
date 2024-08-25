@@ -11,16 +11,21 @@ export const Search = () => {
     count: undefined,
     next: undefined,
   };
+  const jobsTitles = jobs.map((job) => job.attributes.title);
   const jobsCards = jobs.map((job) => (
     <JobCardComponent key={job.id} job={job} />
   ));
 
   return (
     <section className="search-page">
-      <SearchBar />
+      <SearchBar
+        isLoadingSuggestions={isLoadingJobsSearch}
+        suggestions={jobsTitles}
+      />
       <div className="container">
-        {isLoadingJobsSearch && <Loader className="mt-100" />}
-        {jobsCards.length ? (
+        {isLoadingJobsSearch ? (
+          <Loader className="mt-100" />
+        ) : jobsCards.length ? (
           <>
             <h1 className="title">{`${
               searchTerm ? `"${searchTerm}"` : ""
@@ -28,7 +33,7 @@ export const Search = () => {
             <div className="jobs-container">{jobsCards}</div>
           </>
         ) : (
-          <p className="no-result">No Results</p>
+          !isLoadingJobsSearch && <p className="no-result">No Results</p>
         )}
       </div>
     </section>

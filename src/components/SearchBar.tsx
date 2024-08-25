@@ -4,24 +4,60 @@ import { useAppDispatch } from "../hooks";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCallback, useState } from "react";
 import _debounce from "lodash/debounce";
-export const SearchBar = () => {
+import { Loader } from "./Loader";
+type SearchBarProps = {
+  suggestions?: string[];
+  isLoadingSuggestions?: boolean;
+};
+export const SearchBar = ({
+  suggestions,
+  isLoadingSuggestions,
+}: SearchBarProps) => {
   const [value, setValue] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const handleSuggestionClick = (suggestion: string) => {
+    setValue(suggestion);
+    setShowSuggestions(false);
+    debounceFn(suggestion);
+  };
+
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useAppDispatch();
   const changeInputHandler = (term: string) => {
     setValue(term);
+    setShowSuggestions(term.length > 0);
     debounceFn(term);
   };
-
   const handleDebounceFn = (inputValue: string) => {
-    dispatch(setSearchTerm(inputValue));
-    if (inputValue.length > 2 && location.pathname !== "/jobs/search") {
-      navigate("/jobs/search");
+    if (inputValue.length > 2) {
+      dispatch(setSearchTerm(inputValue));
+      if (location.pathname !== "/jobs/search") {
+        navigate("/jobs/search");
+      }
     }
   };
 
   const debounceFn = useCallback(_debounce(handleDebounceFn, 500), []);
+  const renderSuggestions = () => {
+    const filteredSuggestions = suggestions?.filter((suggestion) =>
+      suggestion.toLowerCase().includes(value.toLowerCase())
+    );
+    if (isLoadingSuggestions)
+      return (
+        <li>
+          <Loader />
+        </li>
+      );
+    if (!filteredSuggestions?.length) {
+      return <li>No suggestions found</li>;
+    }
+    return filteredSuggestions?.map((suggestion, index) => (
+      <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
+        {suggestion}
+      </li>
+    ));
+  };
   return (
     <section className="search-section">
       <div className="search-container">
@@ -34,6 +70,9 @@ export const SearchBar = () => {
           placeholder="search keyword"
         />
         <FaSearch />
+        {showSuggestions && (
+          <ul className="suggestions">{renderSuggestions()}</ul>
+        )}
       </div>
     </section>
   );

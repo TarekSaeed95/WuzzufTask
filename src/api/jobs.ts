@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useInfiniteQuery, useQuery } from "react-query";
 import { http } from "../config";
 import {
   ApiJobByIdGetResponse,
@@ -15,18 +15,24 @@ type Jobs = {
 const jobs: Jobs = {
   get: (query) =>
     http.get(
-      `/jobs` +
-        `?${query?.limit ? `limit=${query.limit}` : "12"}` +
-        `${query?.cursor ? `&cursor=${query.cursor}` : ""}`
+      `/jobs?` +
+        `${query?.limit ? `limit=${query.limit}&` : ""}` +
+        `${query?.cursor ? `cursor=${query.cursor}` : ""}`
     ),
   search: (query) =>
     http.get(`/jobs/search` + `?${query?.name ? `query=${query.name}` : ""}`),
   getById: (id) => http.get(`/job/${id}`),
 };
 export const useJobs = (query?: ApiJobsGetRequestParams) =>
-  useQuery({
+  useInfiniteQuery({
     queryKey: [`jobs/get`, query?.cursor, query?.limit],
-    queryFn: () => jobs.get(query),
+    queryFn: ({ pageParam }) =>
+      jobs.get({ cursor: pageParam, limit: query?.limit }),
+    getNextPageParam: (lastPage: ApiJobsGetResponse, allPages) => {
+      return allPages.length < lastPage.data.meta.count
+        ? allPages.length
+        : undefined;
+    },
   });
 export const useJobsSearch = (query: ApiJobsSearchGetRequestParams) =>
   useQuery({

@@ -3,10 +3,14 @@ import { Layout } from "./components";
 import { Home, Search, Job, Skill } from "./pages";
 
 function App() {
+  const JobsRoutes = () =>
+    ["/", "/jobs"].map((path) => (
+      <Route key={path} path={path} element={<Home />} />
+    ));
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/jobs" element={<Home />} />
+        {JobsRoutes()}
         <Route path="/jobs/search" element={<Search />} />
         <Route path="/job/:uuid" element={<Job />} />
         <Route path="/skill/:uuid" element={<Skill />} />

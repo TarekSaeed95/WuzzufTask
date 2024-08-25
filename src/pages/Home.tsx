@@ -28,14 +28,19 @@ export const Home = () => {
       />
     ))
   );
-  if (isLoadingJobs) return <Loader className="mt-100" />;
   return (
     <section className="home-page">
       <SearchBar />
       <div className="container">
-        <h1 className="title">All Jobs</h1>
-        <div className="jobs-container">{jobsCards}</div>
-        {isFetchingNextPage && <Loader className="mt-100 mb-100" />}
+        {isLoadingJobs ? (
+          <Loader className="mt-100" />
+        ) : (
+          <>
+            <h1 className="title">All Jobs</h1>
+            <div className="jobs-container">{jobsCards}</div>
+            {isFetchingNextPage && <Loader className="mt-100 mb-100" />}
+          </>
+        )}
       </div>
     </section>
   );

@@ -1,3 +1,4 @@
+import { RelatedJob } from './RelatedJob';
 import { Loader } from "./Loader";
 import { SkillRelatedJob } from "./SkillRelatedJob";
 import { SkillsCard } from "./SkillsCard";
@@ -17,4 +18,5 @@ export {
   SkillsCard,
   SkillRelatedJob,
   Loader,
+  RelatedJob
 };

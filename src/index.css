@@ -278,21 +278,24 @@ h1.title {
     font-weight: bold;
 }
 
-.skill-related-jobs {
+.skill-related-jobs,
+.skill-related-skills {
     background: #D9D9D9;
     padding: 2rem;
     width: 33.3333333%;
     height: fit-content;
 }
 
-.skill-related-jobs .content {
+.skill-related-jobs .content,
+.skill-related-skills .content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-top: 2rem;
 }
 
-.skill-related-jobs li {
+.skill-related-jobs li,
+.skill-related-skills li {
     text-decoration: underline;
 }
 

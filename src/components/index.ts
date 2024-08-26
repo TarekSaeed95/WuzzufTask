@@ -8,6 +8,7 @@ import { Header } from "./Header";
 import { SearchBar } from "./SearchBar";
 import { JobCardComponent } from "./JobCardComponent";
 import { JobsCardSkills } from "./JobsCardSkills";
+import { SkillRelatedSkill } from './SkillRelatedSkill';
 export {
   JobsCardSkills,
   ErrorBoundary,
@@ -18,5 +19,6 @@ export {
   SkillsCard,
   SkillRelatedJob,
   Loader,
-  RelatedJob
+  RelatedJob,
+  SkillRelatedSkill
 };

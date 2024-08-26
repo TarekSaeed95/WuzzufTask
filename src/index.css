@@ -177,6 +177,10 @@ h1.title {
     width: 49%;
 }
 
+.search-page-sections .job-card {
+    width: 48%;
+}
+
 .job-card h2 {
     font-size: 1.5rem;
 }
@@ -279,7 +283,8 @@ h1.title {
 }
 
 .skill-related-jobs,
-.skill-related-skills {
+.skill-related-skills,
+.search-history {
     background: #D9D9D9;
     padding: 2rem;
     width: 33.3333333%;
@@ -287,15 +292,27 @@ h1.title {
 }
 
 .skill-related-jobs .content,
-.skill-related-skills .content {
+.skill-related-skills .content,
+.search-page-sections,
+.search-page-sections .content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin-top: 2rem;
 }
 
+.search-page-sections .jobs-container {
+    width: 67.66667%;
+}
+
+.main-search-content {
+    display: flex;
+    gap: 2rem;
+}
+
 .skill-related-jobs li,
-.skill-related-skills li {
+.skill-related-skills li,
+.search-history li {
     text-decoration: underline;
 }
 

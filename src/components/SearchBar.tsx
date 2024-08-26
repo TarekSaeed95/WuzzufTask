@@ -2,9 +2,10 @@ import { FaSearch } from "react-icons/fa";
 import { setSearchTerm } from "../redux/features";
 import { useAppDispatch } from "../hooks";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import _debounce from "lodash/debounce";
 import { Loader } from "./Loader";
+import { useOutsideClicker } from "../hooks";
 type SearchBarProps = {
   suggestions?: string[];
   isLoadingSuggestions?: boolean;
@@ -37,12 +38,17 @@ export const SearchBar = ({
       }
     }
   };
-
+  const searchBarRef = useRef(null);
+  useOutsideClicker({
+    actions: () => setShowSuggestions(false),
+    ref: searchBarRef,
+  });
   const debounceFn = useCallback(_debounce(handleDebounceFn, 500), []);
   const renderSuggestions = () => {
     const filteredSuggestions = suggestions?.filter((suggestion) =>
       suggestion.toLowerCase().includes(value.toLowerCase())
     );
+
     if (isLoadingSuggestions)
       return (
         <li>
@@ -59,7 +65,7 @@ export const SearchBar = ({
     ));
   };
   return (
-    <section className="search-section">
+    <section className="search-section" ref={searchBarRef}>
       <div className="search-container">
         <input
           value={value}

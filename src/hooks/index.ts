@@ -1,3 +1,4 @@
+import { useOutsideClicker } from './useOutsideClicker';
 import { useInfiniteScrolling } from "./useInfiniteScrolling";
 export * from "./RTKHooks";
-export { useInfiniteScrolling };
+export { useInfiniteScrolling,useOutsideClicker };

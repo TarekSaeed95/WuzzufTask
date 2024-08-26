@@ -310,6 +310,10 @@ h1.title {
     gap: 2rem;
 }
 
+.search-page li {
+    cursor: pointer;
+}
+
 .skill-related-jobs li,
 .skill-related-skills li,
 .search-history li {

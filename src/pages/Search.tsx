@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useJobsSearch } from "../api";
 import { JobCardComponent, Loader, SearchBar } from "../components";
 import { useAppDispatch, useAppSelector } from "../hooks";
-import { setSearchTermHistory } from "../redux/features";
+import { setSearchTerm, setSearchTermHistory } from "../redux/features";
 
 export const Search = () => {
   const searchTerm = useAppSelector((state) => state.search.searchTerm);
@@ -27,7 +27,9 @@ export const Search = () => {
     (state) => state.search.searchTermHistory
   );
   const searchHistoryElement = searchTermHistory.map((searchTerm) => (
-    <li key={searchTerm}>{searchTerm}</li>
+    <li key={searchTerm} onClick={() => dispatch(setSearchTerm(searchTerm))}>
+      {searchTerm}
+    </li>
   ));
   return (
     <section className="search-page">

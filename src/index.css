@@ -59,16 +59,6 @@ p {
 }
 
 
-@keyframes progress {
-    0% {
-        transform: translate3d(-100%, 0, 0);
-    }
-
-    100% {
-        transform: translate3d(100%, 0, 0);
-    }
-}
-
 @keyframes pulse {
     50% {
         opacity: .5;
@@ -82,6 +72,8 @@ p {
     border-radius: .125rem;
     background-color: darkgray;
 }
+
+
 
 header {
     background: white;
@@ -101,7 +93,7 @@ header .flex {
 header ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
     font-size: 1.125rem;
 }
 
@@ -130,6 +122,8 @@ header ul li:hover::after {
         width: 100%;
     }
 }
+
+
 
 .search-section {
     background: white;
@@ -233,6 +227,7 @@ h1.title {
     padding: 2rem 1rem 2rem 2rem;
     margin-bottom: 2rem;
     width: 66.666666666666%;
+    height: fit-content;
 }
 
 .related-skills .subtitle,
@@ -401,4 +396,85 @@ h1.title {
 
 .suggestions li:not(:last-child) {
     border-bottom: 1px solid #C4C4C4;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .container {
+        padding-inline: 1rem;
+    }
+
+    header ul {
+        gap: .5rem
+    }
+
+    h1.title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .search-section input {
+        font-size: 1rem;
+    }
+
+    .search-section input::placeholder {
+        font-size: 1rem;
+    }
+
+    .search-container {
+        padding: 1rem;
+    }
+
+    .search-section svg {
+        right: 2rem;
+    }
+
+    .suggestions {
+        font-size: 1rem;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .container,
+    .job-card,
+    .search-page-sections .job-card,
+    .search-page-sections .jobs-container,
+    .search-section input,
+    .search-container,
+    .search-history,
+    .related-skills,
+    .related-jobs,
+    .skill-related-skills {
+        width: 100%;
+    }
+
+    .main-search-content,
+    .related {
+        flex-direction: column;
+    }
+
+    .container {
+        margin-bottom: 2rem
+    }
+
+    .skill-card .skill-attr {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .related-skills,
+    .related-jobs {
+        padding: 1rem;
+        margin-bottom: 0;
+    }
+
+    .skill-card .skill-attr div {
+        width: fit-content;
+
+    }
+
+    .skill-related-jobs {
+        width: 100%;
+    }
+
 }

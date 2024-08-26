@@ -1,6 +1,10 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setSearchTerm } from "../redux/features";
 
 export const Header = () => {
+  const dispatch = useDispatch();
+  const clearSearchTerm = () => dispatch(setSearchTerm(""));
   return (
     <header>
       <div className="container flex">
@@ -10,7 +14,7 @@ export const Header = () => {
             <li>
               <Link to={"/jobs"}>Home</Link>
             </li>
-            <li>
+            <li onClick={() => clearSearchTerm()}>
               <Link to={"jobs/search"}>Search</Link>
             </li>
             <li>History</li>

@@ -11,12 +11,12 @@ export const Job = () => {
   const jobId = useLocation().pathname.split("/").pop() || "";
   const { data: jobByIdResponse, isLoading: isLoadingJob } = useJobById(jobId);
   const isFetchingSkills = useIsFetching(["skills/getById"]);
+  const isFetchingJobs = useIsFetching(["jobs/getById"]);
   const jobData = jobByIdResponse?.data.job;
 
   const skillElement = jobData?.relationships.skills.map((skill, i) => (
     <SkillsCard key={skill.id + i} skillId={skill.id} />
   ));
-
   const jobsElement = relatedJobsIds?.jobsIds
     .filter((job) => job !== jobId)
     .map((jobId, i) => <RelatedJob key={jobId + i} jobId={jobId} />);
@@ -34,7 +34,7 @@ export const Job = () => {
           <section className="skill-related-jobs">
             <h2 className="subtitle">Related Jobs:</h2>
             <section className="content">
-              {isFetchingSkills ? (
+              {isFetchingSkills || isFetchingJobs ? (
                 <Loader className="border-white" />
               ) : (
                 jobsElement

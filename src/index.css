@@ -246,6 +246,7 @@ h1.title {
 .related {
     display: flex;
     justify-content: space-between;
+    gap: 2rem;
 }
 
 .skill-card,

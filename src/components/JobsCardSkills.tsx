@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useSkills } from "../api";
-import { Loader } from "./Loader";
 
 type JobsCardSkillsProps = {
   skillId: string;
@@ -10,13 +9,11 @@ export const JobsCardSkills = ({ skillId }: JobsCardSkillsProps) => {
     id: skillId,
   });
   const skill = skillResponse?.data.skill.attributes;
-  return (
+  return isLoadingSkills ? (
+    <div className="animate-pulse"></div>
+  ) : (
     <p>
-      {isLoadingSkills ? (
-        <Loader />
-      ) : (
-        <Link to={"/skill/" + skillId}>{skill?.name}</Link>
-      )}
+      <Link to={"/skill/" + skillId}>{skill?.name}</Link>
     </p>
   );
 };

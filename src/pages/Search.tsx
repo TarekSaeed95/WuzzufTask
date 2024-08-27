@@ -24,7 +24,7 @@ export const Search = () => {
     }
   }, [jobs]);
   const searchTermHistory = useAppSelector(
-    (state) => state.search.searchTermHistory
+    (state) => state.searchHistory.searchTermHistory
   );
   const searchHistoryElement = searchTermHistory.map((searchTerm) => (
     <li key={searchTerm} onClick={() => dispatch(setSearchTerm(searchTerm))}>

@@ -1,11 +1,11 @@
 import { FaSearch } from "react-icons/fa";
-import { setSearchTerm } from "../redux/features";
-import { useAppDispatch } from "../hooks";
+import { setSearchTerm } from "../../redux/features";
+import { useAppDispatch } from "../../hooks";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCallback, useRef, useState } from "react";
 import _debounce from "lodash/debounce";
 import { Loader } from "./Loader";
-import { useOutsideClicker } from "../hooks";
+import { useOutsideClicker } from "../../hooks";
 type SearchBarProps = {
   suggestions?: string[];
   isLoadingSuggestions?: boolean;

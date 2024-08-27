@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Error } from "../pages";
+import { Error } from "../../pages";
 
 type ErrorProps = {
   children: ReactNode[] | ReactNode;
@@ -13,7 +13,6 @@ export class ErrorBoundary extends React.Component<ErrorProps> {
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-  componentDidCatch(error: Error): void {}
   render(): React.ReactNode {
     if (this.state.hasError) {
       return <Error />;

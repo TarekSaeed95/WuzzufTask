@@ -254,6 +254,11 @@ h1.title {
     padding: 1.5rem;
 }
 
+.skill-related-job-card a {
+    text-decoration: underline;
+    text-underline-offset: .25rem;
+}
+
 .skill-card h2 {
     text-decoration: underline;
 }

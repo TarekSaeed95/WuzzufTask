@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useJobById } from "../api";
-import { Loader, SkillsCard, RelatedJob } from "../components";
+import { Loader, JobRelatedSkills, RelatedJob } from "../components";
 import { useAppSelector } from "../hooks";
 import { useIsFetching } from "react-query";
 
@@ -15,7 +15,7 @@ export const Job = () => {
   const jobData = jobByIdResponse?.data.job;
 
   const skillElement = jobData?.relationships.skills.map((skill, i) => (
-    <SkillsCard key={skill.id + i} skillId={skill.id} />
+    <JobRelatedSkills key={skill.id + i} skillId={skill.id} />
   ));
   const jobsElement = relatedJobsIds?.jobsIds
     .filter((job) => job !== jobId)

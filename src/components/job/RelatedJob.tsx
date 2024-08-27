@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useJobById } from "../api";
+import { useJobById } from "../../api";
 
 type RelatedJobProps = {
   jobId: string;

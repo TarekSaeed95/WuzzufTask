@@ -1,14 +1,14 @@
-import { RelatedJob } from './RelatedJob';
-import { Loader } from "./Loader";
-import { SkillRelatedJob } from "./SkillRelatedJob";
-import { SkillsCard } from "./SkillsCard";
-import { Layout } from "./Layout";
-import { ErrorBoundary } from "./ErrorBoundary";
-import { Header } from "./Header";
-import { SearchBar } from "./SearchBar";
+import { RelatedJob } from './job/RelatedJob';
+import { Loader } from "./general/Loader";
+import { SkillRelatedJob } from "./skill/SkillRelatedJob";
+import { JobRelatedSkills } from "./job/JobRelatedSkills";
+import { Layout } from "./general/Layout";
+import { ErrorBoundary } from "./general/ErrorBoundary";
+import { Header } from "./general/Header";
+import { SearchBar } from "./general/SearchBar";
 import { JobCardComponent } from "./JobCardComponent";
 import { JobsCardSkills } from "./JobsCardSkills";
-import { SkillRelatedSkill } from './SkillRelatedSkill';
+import { SkillRelatedSkill } from './skill/SkillRelatedSkill';
 export {
   JobsCardSkills,
   ErrorBoundary,
@@ -16,7 +16,7 @@ export {
   SearchBar,
   Layout,
   JobCardComponent,
-  SkillsCard,
+  JobRelatedSkills,
   SkillRelatedJob,
   Loader,
   RelatedJob,

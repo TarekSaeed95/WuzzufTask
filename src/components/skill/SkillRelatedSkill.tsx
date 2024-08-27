@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useSkillById } from "../api";
+import { useSkillById } from "../../api";
 
 type RelatedSkillProps = {
   skillId: string;

@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { useSkillById } from "../api";
-import { Loader } from "./Loader";
-import { useAppDispatch } from "../hooks";
+import { useSkillById } from "../../api";
+import { Loader } from "../general/Loader";
+import { useAppDispatch } from "../../hooks";
 import { useEffect } from "react";
-import { setRelatedJobsIds } from "../redux/features";
+import { setRelatedJobsIds } from "../../redux/features";
 
-type SkillsCardProps = {
+type JobRelatedSkillsProps = {
   skillId: string;
 };
-export const SkillsCard = ({ skillId }: SkillsCardProps) => {
+export const JobRelatedSkills = ({ skillId }: JobRelatedSkillsProps) => {
   const {
     data: skillResponse,
     isLoading: isLoadingSkill,

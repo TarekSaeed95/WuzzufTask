@@ -1,4 +1,5 @@
-import { useJobById } from "../api";
+import { Link } from "react-router-dom";
+import { useJobById } from "../../api";
 type SkillRelatedJob = {
   skillJobId: string;
 };
@@ -8,7 +9,9 @@ export const SkillRelatedJob = ({ skillJobId }: SkillRelatedJob) => {
 
   return (
     <section className="skill-related-job-card">
-      <h2>{jobData?.attributes.title}</h2>
+      <h2>
+        <Link to={`/job/${skillJobId}`}>{jobData?.attributes.title}</Link>
+      </h2>
     </section>
   );
 };

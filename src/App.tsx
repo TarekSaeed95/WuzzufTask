@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components";
-import { Home, Search, Job, Skill } from "./pages";
+import { Home, Search, Job, Skill, Error } from "./pages";
 
 function App() {
   const JobsRoutes = () =>
@@ -15,6 +15,7 @@ function App() {
         <Route path="/job/:uuid" element={<Job />} />
         <Route path="/skill/:uuid" element={<Skill />} />
       </Route>
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 }

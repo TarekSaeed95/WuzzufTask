@@ -9,11 +9,8 @@ type JobRelatedSkillsProps = {
   skillId: string;
 };
 export const JobRelatedSkills = ({ skillId }: JobRelatedSkillsProps) => {
-  const {
-    data: skillResponse,
-    isLoading: isLoadingSkill,
-    isError,
-  } = useSkillById(skillId);
+  const { data: skillResponse, isLoading: isLoadingSkill } =
+    useSkillById(skillId);
   const skillData = skillResponse?.data?.skill;
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -25,7 +22,6 @@ export const JobRelatedSkills = ({ skillId }: JobRelatedSkillsProps) => {
         })
       );
   }, [isLoadingSkill, skillData?.id]);
-  if (isError) <h1>Error</h1>;
   return (
     <section className="skill-card">
       {isLoadingSkill ? (
